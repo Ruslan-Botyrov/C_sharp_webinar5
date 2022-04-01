@@ -28,9 +28,21 @@ PrintArray(arr);
 int len = arr.Length;
 int i = 0;
 
-while (i <= len / 2)
+
+int[] proizv(int [] arr)
 {
-    arr[i] = arr[i] * arr[len - i - 1];
-    Console.Write(arr[i] + " ,");
-    i++;
+    int lenght = arr.Length/2;
+    if (arr.Length %2 ==1)
+    {
+        lenght++;
+    }
+    int[] result = new int[lenght];
+    for (int i=0; i<arr.Length/2;i++)
+    {
+        result[i] = arr[i] * arr[arr.Length-i-1];
+    }
+    result[result.Length-1]=arr[result.Length-1];
+    return result;
 }
+
+PrintArray(proizv(arr));
